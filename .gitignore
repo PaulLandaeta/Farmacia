@@ -12,3 +12,5 @@
 hs_err_pid*
 /Farmacia/.nb-gradle/
 /Farmacia/nbproject/private/
+/Farmacia/build/
+/Farmacia/dist/
