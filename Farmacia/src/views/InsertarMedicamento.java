@@ -36,6 +36,7 @@ public class InsertarMedicamento extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        InsertOptionPane = new javax.swing.JOptionPane();
         jPanel1 = new javax.swing.JPanel();
         nombreLabel = new javax.swing.JLabel();
         laboratorioLabel = new javax.swing.JLabel();
@@ -148,6 +149,9 @@ public class InsertarMedicamento extends javax.swing.JFrame {
             c = Conexion.obtener();
             MedicamentoService service=new MedicamentoService();
             service.guardar(c, medicamento);
+            limpia();
+            InsertOptionPane.setVisible(true);
+            
         } catch (SQLException ex) {
             Logger.getLogger(InsertarMedicamento.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
@@ -155,7 +159,12 @@ public class InsertarMedicamento extends javax.swing.JFrame {
         }
        
     }//GEN-LAST:event_jButton1ActionPerformed
-
+    public void limpia(){
+        nombreTextField.setText("");
+        tipoTextField.setText("");
+        laboratorioTextField.setText("");
+        dateTextField.setText("");
+   }
     /**
      * @param args the command line arguments
      */
@@ -192,6 +201,7 @@ public class InsertarMedicamento extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JOptionPane InsertOptionPane;
     private javax.swing.JLabel dateLabel;
     private javax.swing.JTextField dateTextField;
     private javax.swing.JButton jButton1;
