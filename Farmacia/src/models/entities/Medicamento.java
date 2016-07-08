@@ -5,14 +5,16 @@
  */
 package models.entities;
 
-import java.util.Date;
+import java.sql.Date;
+
+
 
 /**
  *
  * @author plandaeta
  */
 public class Medicamento {
-    private Long id;
+    private Long id=null;
     private String name;
     private String laboratorio;
     private String tipo;
