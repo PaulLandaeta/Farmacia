@@ -19,7 +19,34 @@ public class Medicamento {
     private String laboratorio;
     private String tipo;
     private Date dateExpired;
+    private int cantidad;
+    private double precioUnitario;
 
+    public Medicamento(Long id, String name, String laboratorio, String tipo, Date dateExpired, int cantidad, double precioUnitario) {
+        this.id = id;
+        this.name = name;
+        this.laboratorio = laboratorio;
+        this.tipo = tipo;
+        this.dateExpired = dateExpired;
+        this.cantidad = cantidad;
+        this.precioUnitario = precioUnitario;
+    }
+
+   
+
+    public int getCantidad() {
+        return cantidad;
+    }
+    public double getPrecioUnitario() {
+        return precioUnitario;
+    }
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
+    }
+
+    public void setPrecioUnitario(double precioUnitario) {
+        this.precioUnitario = precioUnitario;
+    }
     public Medicamento() {
     }
 
@@ -62,13 +89,4 @@ public class Medicamento {
     public void setId(Long id) {
         this.id = id;
     }
-
-    public Medicamento(Long id, String name, String laboratorio, String tipo, Date dateExpired) {
-        this.id = id;
-        this.name = name;
-        this.laboratorio = laboratorio;
-        this.tipo = tipo;
-        this.dateExpired = dateExpired;
-    }
-    
 }

@@ -24,18 +24,22 @@ public class MedicamentoService {
       try{
          PreparedStatement consulta;
          if(medicamento.getId() == null){
-            consulta = conexion.prepareStatement("INSERT INTO " + this.tabla + "(name, laboratorio, tipo,dateExpired) VALUES(?, ?, ?,?)");
+            consulta = conexion.prepareStatement("INSERT INTO " + this.tabla + "(name, laboratorio, tipo,dateExpired,cantidad,precio) VALUES(?, ?, ?,?,?,?)");
             consulta.setString(1, medicamento.getName());
             consulta.setString(2, medicamento.getLaboratorio());
             consulta.setString(3, medicamento.getTipo());
             consulta.setDate(4, (Date) medicamento.getDateExpired());
+            consulta.setInt(5,medicamento.getCantidad());
+            consulta.setDouble(6, medicamento.getPrecioUnitario());
          }else{
-            consulta = conexion.prepareStatement("UPDATE " + this.tabla + " SET name = ?, laboratorio = ?, tipo = ?, dateExpired = ? WHERE id_tarea = ?");
+            consulta = conexion.prepareStatement("UPDATE " + this.tabla + " SET name = ?, laboratorio = ?, tipo = ?, dateExpired = ?, cantidad = ?, precio = ? WHERE id_tarea = ?");
             consulta.setString(1, medicamento.getName());
             consulta.setString(2, medicamento.getLaboratorio());
             consulta.setString(3, medicamento.getTipo());
             consulta.setDate(4, (Date) medicamento.getDateExpired());
             consulta.setLong(5, medicamento.getId());
+            consulta.setInt(6,medicamento.getCantidad());
+            consulta.setDouble(7, medicamento.getPrecioUnitario());
          }
          consulta.executeUpdate();
       }catch(SQLException ex){
@@ -69,10 +73,20 @@ public class MedicamentoService {
    public List<Medicamento> recuperarTodas(Connection conexion) throws SQLException{
       List<Medicamento> medicamentos = new ArrayList<>();
       try{
-         PreparedStatement consulta = conexion.prepareStatement("SELECT id, name, laboratorio, tipo,dateexpired FROM " + this.tabla + " ORDER BY name");
+         PreparedStatement consulta = conexion.prepareStatement("SELECT id, name, laboratorio, tipo, cantidad, precio,dateexpired FROM " + this.tabla + " ORDER BY name");
          ResultSet resultado = consulta.executeQuery();
          while(resultado.next()){
-            medicamentos.add(new Medicamento(resultado.getLong("id"), resultado.getString("name"), resultado.getString("laboratorio"), resultado.getString("tipo"),resultado.getDate("dateexpired")));
+             
+             Medicamento medi=new Medicamento(
+                     resultado.getLong("id"), 
+                     resultado.getString("name"), 
+                     resultado.getString("laboratorio"), 
+                     resultado.getString("tipo"),
+                     resultado.getDate("dateexpired"),
+                     resultado.getInt("cantidad"),
+                     resultado.getDouble("precio")
+             ); 
+            medicamentos.add(medi);
          }
       }catch(SQLException ex){
          throw new SQLException(ex);

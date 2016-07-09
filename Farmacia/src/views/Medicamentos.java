@@ -32,14 +32,16 @@ public class Medicamentos extends javax.swing.JFrame {
         MedicamentoService medicamentoservice=new MedicamentoService();
         List<Medicamento> medicamentolist=medicamentoservice.recuperarTodas(c);
         System.out.println(medicamentolist.size());
-        model=new DefaultTableModel(null, new String[]{"Nombre","Laboratorio","Tipo","Fecha de Expiracion"});        
+        model=new DefaultTableModel(null, new String[]{"Nombre","Laboratorio","Tipo","Cantidad","Precio Unitario","Fecha de Expiracion"});        
         
         for(Medicamento medicamento:medicamentolist){
-            Object datos[]=new Object[4]; 
+            Object datos[]=new Object[6]; 
             datos[0]=medicamento.getName();
             datos[1]=medicamento.getLaboratorio();
             datos[2]=medicamento.getTipo();
-            datos[3]=medicamento.getDateExpired();
+            datos[3]=medicamento.getCantidad();
+            datos[4]=medicamento.getPrecioUnitario();
+            datos[5]=medicamento.getDateExpired();
             model.addRow(datos);
         }
         initComponents(); 
@@ -59,7 +61,7 @@ public class Medicamentos extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jTable1.setModel(model);
         jScrollPane1.setViewportView(jTable1);
