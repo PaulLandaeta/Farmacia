@@ -7,17 +7,19 @@ package models.entities;
 
 /**
  *
- * @author Paul Wilker Landaeta Flores paulwilkerlf@gmail.com
+ * @author plandaeta
  */
-public class Laboratorio {
-    private Long id=null;
+public class Tipo {
+    private Long id;
     private String nombre;
-    private String nacionalidad;
+    private int cantidad;
+    private double peso;
 
-    public Laboratorio(Long id, String nombre, String nacionalidad) {
+    public Tipo(Long id, String nombre, int cantidad, double peso) {
         this.id = id;
         this.nombre = nombre;
-        this.nacionalidad = nacionalidad;
+        this.cantidad = cantidad;
+        this.peso = peso;
     }
 
     public Long getId() {
@@ -28,8 +30,12 @@ public class Laboratorio {
         return nombre;
     }
 
-    public String getNacionalidad() {
-        return nacionalidad;
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    public double getPeso() {
+        return peso;
     }
 
     public void setId(Long id) {
@@ -40,7 +46,13 @@ public class Laboratorio {
         this.nombre = nombre;
     }
 
-    public void setNacionalidad(String nacionalidad) {
-        this.nacionalidad = nacionalidad;
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
     }
+
+    public void setPeso(double peso) {
+        this.peso = peso;
+    }
+    
+    
 }

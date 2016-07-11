@@ -11,12 +11,12 @@ import java.util.List;
  *
  * @author Paul Wilker Landaeta Flores paulwilkerlf@gmail.com
  */
-public class Stock {
+public class Bodega {
     public Long id;
     public Long id_medicamento;
     public List<Ingreso> ingresos;
 
-    public Stock(Long id, Long id_medicamento, List<Ingreso> ingresos) {
+    public Bodega(Long id, Long id_medicamento, List<Ingreso> ingresos) {
         this.id = id;
         this.id_medicamento = id_medicamento;
         this.ingresos = ingresos;

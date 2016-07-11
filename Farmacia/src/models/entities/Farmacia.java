@@ -4,21 +4,19 @@
  * and open the template in the editor.
  */
 package models.entities;
-
 import java.util.List;
-
 /**
  *
  * @author Paul Wilker Landaeta Flores paulwilkerlf@gmail.com
  */
 public class Farmacia {
     private String nombre;
-    private List<Stock> stock;
+    private List<Bodega> bodega;
     private List<Ventas> ventas;
 
-    public Farmacia(String nombre, List<Stock> stock, List<Ventas> ventas) {
+    public Farmacia(String nombre, List<Bodega> bodega, List<Ventas> ventas) {
         this.nombre = nombre;
-        this.stock = stock;
+        this.bodega = bodega;
         this.ventas = ventas;
     }
 
@@ -26,8 +24,8 @@ public class Farmacia {
         return nombre;
     }
 
-    public List<Stock> getStock() {
-        return stock;
+    public List<Bodega> getBodega() {
+        return bodega;
     }
 
     public List<Ventas> getVentas() {
@@ -38,12 +36,11 @@ public class Farmacia {
         this.nombre = nombre;
     }
 
-    public void setStock(List<Stock> stock) {
-        this.stock = stock;
+    public void setStock(List<Bodega> bodega) {
+        this.bodega = bodega;
     }
 
     public void setVentas(List<Ventas> ventas) {
         this.ventas = ventas;
     }
-    
 }
