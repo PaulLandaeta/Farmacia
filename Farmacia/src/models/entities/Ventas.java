@@ -17,14 +17,12 @@ public class Ventas {
     private Date FechaVenta;
     private Double Total;
     private List<Medicamento> Medicamentos;
-    private Long Cantidad;
 
-    public Ventas(Long id, Date FechaVenta, Double Total, List<Medicamento> Medicamentos, Long Cantidad) {
+    public Ventas(Long id, Date FechaVenta, Double Total, List<Medicamento> Medicamentos) {
         this.id = id;
         this.FechaVenta = FechaVenta;
         this.Total = Total;
         this.Medicamentos = Medicamentos;
-        this.Cantidad = Cantidad;
     }
 
     public Long getId() {
@@ -43,10 +41,6 @@ public class Ventas {
         return Medicamentos;
     }
 
-    public Long getCantidad() {
-        return Cantidad;
-    }
-
     public void setId(Long id) {
         this.id = id;
     }
@@ -61,10 +55,6 @@ public class Ventas {
 
     public void setMedicamentos(List<Medicamento> Medicamentos) {
         this.Medicamentos = Medicamentos;
-    }
-
-    public void setCantidad(Long Cantidad) {
-        this.Cantidad = Cantidad;
     }
     
 }

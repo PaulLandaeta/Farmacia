@@ -20,6 +20,7 @@ public class User {
     private Long id;
     private String username;
     private String password;
+    private String rol;
     public User(String username,String password){
         this.username=username;
         this.password=password;
